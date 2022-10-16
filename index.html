@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Form JS</title>
+
+	<style type="text/css">
+		* {
+			box-sizing: border-box;
+			font-family: sans-serif;
+		}
+
+		.container {
+			padding: 10px;
+			max-width: 1000px;
+			border: 1px solid gray;
+			min-height: calc(100vh - 16px);
+		}
+
+		h2.title, h3.subtitle {
+			margin: 0;
+			font-weight: 100;
+		}
+		
+		.label-form {
+			display: grid;
+			grid-template-columns: 150px 1fr;
+			margin: 5px;
+		}
+
+		.title-input {
+			display: flex;
+			align-items: center;
+			padding: 5px;
+			font-size: 16px;
+			background-color: yellow;
+		}
+
+		.entry-field {
+			padding: 5px;
+		}
+
+		.btn-submit {
+			margin: 5px;
+			padding: 5px;
+			color: white;
+			border: none;
+			width: 300px;
+			height: 30px;
+			font-size: 16px;
+			transition: all 500ms;
+			background-color: black;
+		}
+
+		.btn-submit:hover {
+			background-color: white;
+			box-shadow: 0 0 1px 1px black;
+			color: black;
+		}
+
+		/* Modal window*/
+		.modal-container {
+			position: fixed;
+			top: 0;
+			left: 0;
+			right: 0;
+			bottom: 0;
+			overflow: hidden;
+			display: none;
+			justify-content: center;
+			align-items: center;
+			z-index: 99;
+			background-color: white;
+		}
+
+		.active {
+			display: flex;
+		}
+
+		.modal-window {
+			text-align: center;
+			padding: 20px;
+			background-color: white;
+			border: 1px solid black;
+			max-width: 350px;
+		}
+
+		.title-modal-win {
+			margin: 0;
+			font-weight: 100;
+		}
+		
+		.btn-close {
+			background-color: red;
+			border: none;
+			color: white;
+			padding: 5px;
+			font-weight: bold;
+			transition: all 500ms;
+		}
+
+		.btn-close:hover {
+			background-color: white;
+			box-shadow: 0 0 1px 1px red;
+			color: red;
+		}
+	</style>
+</head>
+<body>
+
+	<div class="container">
+		<h2 class="title">Работа с формами</h2>
+		<h3 class="subtitle">
+			Кнопка показать/скрыть пароль
+		</h3>
+		<hr>
+
+		<input type="password" id="inputPass" placeholder="Password" class="password-input">
+		<button id="btnPass" class="btn-pass">ShowPassword</button>
+	</div>
+
+	<script type="text/javascript">
+		let btnPass = document.querySelector('#btnPass'),
+			inputPass = document.querySelector('#inputPass');
+
+		btnPass.onclick = function() {
+			if(inputPass.getAttribute('type') === 'password') {
+				inputPass.setAttribute('type', 'text');
+				btnPass.textContent = 'HiddenPassword';
+			} else {
+				inputPass.setAttribute('type', 'password');
+				btnPass.textContent = 'ShowPassword';
+			}
+		}
+
+	</script>
+
+</body>
+</html>
